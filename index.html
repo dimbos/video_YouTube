@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video с YouTube в фоне</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="lib/jquery-1.11.1.min.js"></script>
+    <script src="lib/jquery.mb.YTPlayer.js"></script>
+</head>
+<body>
+
+        <section class="big-background">
+                <a id="bgndVideo" class="player" data-property="{videoURL:'http://www.youtube.com/watch?v=PKGjG_ZhF-A',containment:'body',autoPlay:true, mute:true, startAt:0, opacity:1}"></a>        
+                <div class="pattern"></div> 
+                    <div class="big-background-container">
+                            <h1 class="big-background-title">YOUTUBE</h1>
+                            <div class="divider"></div>
+                            <h1 id="colorize">ВИДЕО НА ЗАДНЕМ ПЛАНЕ</h1>
+                            <!--<a href="#" class="big-background-btn"></a>-->
+                    </div>                                                    
+            </section> 
+           
+            <div class="wrapper">
+            <section class="about-section">
+                        <div class="about-section-container">
+                            <h2 class="about-section-title">Видео с YouTube на фон</h2>
+                            <!--<p>Хотите знать, как добавить видео на задний план вашего сайта? <br/>Это проще простого! С помощью jQuery MB.YTPlayer, плагина jQuery, вы можете вставлять любое видео с YouTube на фон сайта.<br/> Вы с легкостью сможете превратить любое видео в HTML фон. Никаких задержек в загрузке страницы и нагрузки на сервера!</p>-->
+                            <!--<a href="#" target="_blank" class="about-section-btn"></a>-->
+                        </div>
+            </section>
+        
+             <section class="small-background-section">
+             <div class="pattern"></div>
+                            <div class="small-background-container">
+                                <h2 class="small-background-title"><span>Мы с социальных сетях</span></h2>
+                                 <ul class="socials">
+                                <li><a href="#" target="_blank"><i class="fa fa-facebook-square fa-3x"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-twitter-square fa-3x"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-google-plus-square fa-3x"></i></a></li>
+                                </ul>
+                            </div>
+            </section>
+
+    <script>
+         $(function(){
+         $(".player").mb_YTPlayer();
+        });
+
+        //Что касается jQuery, здесь мы установим переменную is_mobile с параметром false. Затем убедимся, что класс player обладает параметрм display: none. Если это так, то добавим класс big-background-default-image к секциям big-background и small-background-section для использования фонового изображения по умолчанию. В обратном случае ничего не изменится.
+        (function($) {
+    $(document).ready(function() {
+     var is_mobile = false;
+
+    if( $('.player').css('display')=='none') {
+        is_mobile = true;
+    }
+    if (is_mobile == true) {
+        //Conditional script here
+        $('.big-background, .small-background-section').addClass('big-background-default-image');
+    }else{
+        $(".player").mb_YTPlayer();
+    }
+    });
+    })(jQuery);
+    </script>
+    
+</body>
+</html>
